@@ -9,27 +9,30 @@ const notes = [
   {
     'id': 1,
     'name': 'Celestine',
-    'age': 42
+    'age': 38
   },
   {
     'id': 2,
     'name': 'Francine',
-    'age': 38
+    'age': 36
   }
 ];
 
 console.log(notes)
 
 app.get('/notes', (request, response) => {
+  try {
+    response.status(200).send(notes);
+  } catch (error) {
+    throw error;
+  }
 
-  console.log(request.params)
-  response.json(notes);
-})
+});
 
 app.get('/notes/:id', (request, response) => {
   const id = Number(request.params.id);
   const note = notes.find(note => note.id === id);
-  response.status(200).json(note);
+  response.status(200).send(note);
 });
 
 
