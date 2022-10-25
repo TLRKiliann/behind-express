@@ -1,13 +1,15 @@
 import React from 'react';
 
-
 const Third = (props) => {
 
-	console.log("ThirdComp.", props)
+	console.log("ThirdComp. props: ", props)
 
 	return (
 		<div>
-			Hello 3 : id: {props.id} name: {props.name}
+			ThirdComponent 3 :
+			id: {props.id} 
+			name: {props.name}
+			age: {props.age}
 		</div>
 	)
 }

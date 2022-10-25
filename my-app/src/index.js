@@ -4,27 +4,65 @@ import SecondComponent from './Components/SecondComponent';
 import Third from './Components/Third';
 import Fourth from './Components/Fourth';
 
+import SecondPrime from './Components/SecondPrime';
+import ThirdPrime from './Components/ThirdPrime';
+import FourthPrime from './Components/FourthPrime';
+
+import MiddleOne from './Components/MiddleOne';
+import MiddleTwo from './Components/MiddleTwo';
+import MiddleThree from './Components/MiddleThree';
+
+import './index.css';
+
 
 class App extends React.Component {
-    state = {data: [
-                {id: 1, name: "Paul"},
-                {id: 2, name: "Jeffrey"}
-        ]
-    };
+  state = {data: 
+    [
+      {id: 1, name: "Celestine", age: 33},
+      {id: 2, name: "Andrea", age: 41},
+    ]
+  };
 
-    render() {
-        console.log(this.state)
-        return (
-            <div>
-                {this.state.data.map(data => (
-                    <SecondComponent key={data.id} id={data.id} name={data.name}>
-                        <Third id={data.id} />
-                        <Fourth id={data.id} />
-                    </SecondComponent>
-                ))}
-            </div>
-        )
-    }
+  render() {
+    console.log(this.state)
+    return (
+      <div>
+
+        {this.state.data.map(data => (
+          <SecondComponent
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            age={data.age}
+          >
+            <Third  />
+            <Fourth  />
+          </SecondComponent>
+        ))}
+
+        {this.state.data.map(data => (
+          <SecondPrime
+            key={data.id}
+            id={data.id}
+            name={data.name}
+            age={data.age}
+          >
+            <ThirdPrime />
+            <FourthPrime />
+          </SecondPrime>
+        ))}
+
+        {this.state.data.map(data => (
+          <div key={data.id} className="last--div">
+            <MiddleOne  id={data.id} />
+            <MiddleTwo  name={data.name} />
+            <MiddleThree  age={data.age} />
+          </div>
+        ))}
+
+      </div>
+    )
+  }
 }
 
 //ReactDOM.render(<App />, document.getElementById('app'))
