@@ -20,13 +20,34 @@ const notes = [
 
 console.log(notes)
 
-app.get('/notes', (request, response) => {
+app.get('/api/notes', (request, response) => {
   try {
     response.status(200).send(notes);
   } catch (error) {
     throw error;
   }
+});
 
+app.put('/api/notes', (request, response) => {
+  const id = request.body.id;
+  const name = request.body.name;
+  const age = request.body.age;
+  try {
+    response.status(200).send()
+  } catch (error) {
+    throw error
+  }
+});
+
+app.post('/api/notes', (request, response) => {
+  const id = request.body.id;
+  const name = request.body.name;
+  const age = request.body.age;
+  try {
+    response.status(201).send('Nice created')
+  } catch (error) {
+    throw error
+  }
 });
 
 app.get('/notes/:id', (request, response) => {

@@ -1,15 +1,15 @@
-import { app } from '../api/axiosconfig';
+//import axios from 'axios';
+import {app} from '../api/axiosconfig';
 
-const getAllUrl = '/notes';
+const getAllUrl = '/api/notes';
 
 const getAll = () => {
-	const request = getAll(getAllUrl)
-	console.log(request)
-	return request.then(response => console.log(response.data))
-}
-
-const callFunction = {
-	getAll
+	const request = app.getAll(getAllUrl)
+	return request.then(response => response.data)
 };
 
-export default callFunction;
+/*const callFunction = {
+	getAll
+};*/
+
+export default getAll;
